@@ -19,7 +19,6 @@ export default function App() {
       <Drawer.Navigator initialRouteName='Home'>
         <Drawer.Screen name="Home" component={HomeScreen}/>
         <Drawer.Screen name="Tasks" component={MenuScreen} options={{title: "Tienda"}} />
-        <Drawer.Screen name="Details" component={DetailScreen} options={{title: "Producto"}} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

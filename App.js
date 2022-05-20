@@ -3,6 +3,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import HomeScreen from './HomeScreen';
@@ -12,14 +14,28 @@ import MenuScreen from './MenuScreen';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
+
+function Root() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen}/>
+      <Drawer.Screen name="Tasks" component={MenuScreen} options={{title: "Tienda"}} />
+    </Drawer.Navigator>
+  );
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName='Home'>
-        <Drawer.Screen name="Home" component={HomeScreen}/>
-        <Drawer.Screen name="Tasks" component={MenuScreen} options={{title: "Tienda"}} />
-      </Drawer.Navigator>
+      <Stack.Navigator initialRouteName='Home'>
+      <Stack.Screen
+          name="Root"
+          component={Root}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Details" component={DetailScreen} options={{title: "Tarea"}} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

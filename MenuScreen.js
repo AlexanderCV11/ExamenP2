@@ -7,8 +7,9 @@ import tasks from './data/tasks';
 
 function MenuScreen() {
     return (
-        <View style={styles.root}>
+        <View>
             <ScrollView style={styles.scroll}>
+            <View style={styles.root}>
                 {
                     tasks.map((task, i) => (
                         
@@ -22,6 +23,7 @@ function MenuScreen() {
                         />
                     ))
                 }
+                </View>
             </ScrollView>
         </View>
     );
@@ -30,8 +32,9 @@ function MenuScreen() {
 const styles = StyleSheet.create({
     root: {
         flex: 1,
-        flexDirection: 'column',
         backgroundColor: '#ccff90',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
     },
 
     containerBox: {

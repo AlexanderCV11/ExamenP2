@@ -7,7 +7,6 @@ import Logo from './assets/Burris-logo.gif';
 function HomeScreen({navigation}) {
     return (
         <View style={styles.container}>
-            <Image source={{uri: Logo}}/>
             <Text style={styles.text}>Home</Text>
             <Button 
                 title="Ir a la tienda"
